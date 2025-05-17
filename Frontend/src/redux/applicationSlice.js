@@ -12,6 +12,8 @@ const applicationSlice = createSlice({
     }
 });
 
+// this is a random text 
+
 export const {setAllApplicants} = applicationSlice.actions;
 export default applicationSlice.reducer;
 export const applicationReducer = applicationSlice.reducer;
