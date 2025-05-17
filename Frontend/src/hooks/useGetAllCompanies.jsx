@@ -3,6 +3,8 @@ import { COMPANY_API_ENDPOINT } from "@/utils/data";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
+// import useGetAllCompanies from "../../hooks/useGetAllCompanies.jsx";
+
 
 const useGetAllCompanies = () => {
   const dispatch = useDispatch();
