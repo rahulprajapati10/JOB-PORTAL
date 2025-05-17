@@ -1,0 +1,7 @@
+.avtarimg {
+  width: 50px;        /* adjust size as needed */
+  height: 50px;
+  border-radius: 50%; /* makes it circular */
+  object-fit: cover;  /* ensures image fills the circle properly */
+}
+
