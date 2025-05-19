@@ -32,7 +32,7 @@ app.use(cookieParser());
 
 const corsOptions = {
     origin: [
-        "https://job-portal-b-hvsw.onrender.com",
+        "http://localhost:5173",
 
     ],
     credentials: true,
