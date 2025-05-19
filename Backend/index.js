@@ -28,17 +28,32 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 
+// const corsOptions = {
+//     origin: ["http://localhost:5173"],
+//     origin: ["https://job-portal-black-iota.vercel.app"],
+//     credentials: true,
+// };
+
+
 const corsOptions = {
-    // origin: ["http://localhost:5173"],
-    origin: ["https://job-portal-black-iota.vercel.app"],
+    origin: [
+        "http://localhost:5173",
+        "https://job-portal-black-iota.vercel"
+    ],
     credentials: true,
 };
+
+
+
+
 
 // const cors = require('cors');
 // app.use(cors());
 
 
 app.use(cors(corsOptions));
+
+// app.options('/*', cors(corsOptions));
 
 const PORT = process.env.PORT || 5001;
 
