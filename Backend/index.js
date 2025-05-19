@@ -28,17 +28,12 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 
-// const corsOptions = {
-//     origin: ["http://localhost:5173"],
-//     origin: ["https://job-portal-black-iota.vercel.app"],
-//     credentials: true,
-// };
 
 
 const corsOptions = {
     origin: [
         "http://localhost:5173",
-        "https://job-portal-black-iota.vercel"
+
     ],
     credentials: true,
 };
@@ -61,10 +56,6 @@ const PORT = process.env.PORT || 5001;
 app.use(express.json());
 
 
-// console.log("Mounting user routes at", "/api/users");
-// console.log("Mounting company routes at", "/api/company");
-// console.log("Mounting job routes at", "/api/job");
-// console.log("Mounting application routes at", "/api/application");
 
 // api's
 
