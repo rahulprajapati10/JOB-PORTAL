@@ -9,7 +9,7 @@ import applicationRoute from './routes/application.route.js'
 // import connect from 'mongoose'
 import connectDB from './utils/db.js';
 import userRoute from './routes/user.routes.js';
-// import path from 'path';
+import path from 'path';
 
 
 
@@ -70,13 +70,22 @@ app.use("/api/application", applicationRoute);
 
 // code for deployment
 
-// if (process.env.NODE_ENV === "production") {
-//     const dirpath = path.resolve();
-//     app.use(express.static('./Frontend/dist'));
-//     app.get('*', (req, res) => {
-//         res.sendFile(path.resolve(dirpath, './Frontend/dist', 'index.html'));
-//     });
-// }
+if (process.env.NODE_ENV === "production") {
+    // const path = require('path'); // Ensure path is required
+    const dirpath = path.resolve(); // go up from Backend to root 'JOB PORTAL'
+    
+    app.use(express.static(path.join(dirpath, 'Frontend', 'dist')));
+
+   try {
+  app.get('/*', (req, res) => {
+    res.sendFile(path.join(dirpath, 'Frontend', 'dist', 'index.html'));
+  });
+} catch (err) {
+  console.error("Error in wildcard route:", err);
+}
+
+}
+
 
 
 // app.use(express.static(path.join(_dirname, "/Frontend/dist" )));
