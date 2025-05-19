@@ -32,7 +32,7 @@ app.use(cookieParser());
 
 const corsOptions = {
     origin: [
-        "https://job-portal-backend-teyc.onrender.com",
+        "https://job-portal-b-hvsw.onrender.com",
 
     ],
     credentials: true,
