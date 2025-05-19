@@ -31,24 +31,15 @@ app.use(cookieParser());
 
 
 const corsOptions = {
-    origin: [
-        "http://localhost:5173",
-
-    ],
-    credentials: true,
+  origin: [
+    "http://localhost:5173"],
+  credentials: true,
 };
 
 
 
 
-
-// const cors = require('cors');
-// app.use(cors());
-
-
 app.use(cors(corsOptions));
-
-// app.options('/*', cors(corsOptions));
 
 const PORT = process.env.PORT || 5001;
 
@@ -71,18 +62,16 @@ app.use("/api/application", applicationRoute);
 // code for deployment
 
 if (process.env.NODE_ENV === "production") {
-    // const path = require('path'); // Ensure path is required
-    const dirpath = path.resolve(); // go up from Backend to root 'JOB PORTAL'
-    
-    app.use(express.static(path.join(dirpath, 'Frontend', 'dist')));
+  const dirpath = path.resolve();
+  app.use(express.static('./Frontend/dist'));
 
-   try {
-  app.get('/*', (req, res) => {
-    res.sendFile(path.join(dirpath, 'Frontend', 'dist', 'index.html'));
-  });
-} catch (err) {
-  console.error("Error in wildcard route:", err);
-}
+  try {
+    app.get('*', (req, res) => {
+      res.sendFile(path.resolve(dirpath, './Frontend/dist', 'index.html'));
+    });
+  } catch (err) {
+    console.error("Error in wildcard route:", err);
+  }
 
 }
 
@@ -95,7 +84,7 @@ if (process.env.NODE_ENV === "production") {
 
 
 app.listen(PORT, () => {
-    connectDB();
-    console.log(`Server is running on port ${PORT}`);
+  connectDB();
+  console.log(`Server is running on port ${PORT}`);
 
 })
